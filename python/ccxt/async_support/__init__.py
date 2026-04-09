@@ -4,7 +4,7 @@
 
 # -----------------------------------------------------------------------------
 
-__version__ = '4.5.44'
+__version__ = '4.5.45'
 
 # -----------------------------------------------------------------------------
 
@@ -65,7 +65,6 @@ from ccxt.base.errors import error_hierarchy                          # noqa: F4
 
 
 from ccxt.async_support.aftermath import aftermath                              # noqa: F401
-from ccxt.async_support.alp import alp                                          # noqa: F401
 from ccxt.async_support.alpaca import alpaca                                    # noqa: F401
 from ccxt.async_support.apex import apex                                        # noqa: F401
 from ccxt.async_support.arkham import arkham                                    # noqa: F401
@@ -148,6 +147,7 @@ from ccxt.async_support.latoken import latoken                                  
 from ccxt.async_support.lbank import lbank                                      # noqa: F401
 from ccxt.async_support.lighter import lighter                                  # noqa: F401
 from ccxt.async_support.luno import luno                                        # noqa: F401
+from ccxt.async_support.matrixport import matrixport                            # noqa: F401
 from ccxt.async_support.mercado import mercado                                  # noqa: F401
 from ccxt.async_support.mexc import mexc                                        # noqa: F401
 from ccxt.async_support.modetrade import modetrade                              # noqa: F401
@@ -178,7 +178,6 @@ from ccxt.async_support.zonda import zonda                                      
 
 exchanges = [
     'aftermath',
-    'alp',
     'alpaca',
     'apex',
     'arkham',
@@ -261,6 +260,7 @@ exchanges = [
     'lbank',
     'lighter',
     'luno',
+    'matrixport',
     'mercado',
     'mexc',
     'modetrade',

@@ -19,7 +19,7 @@ import (
 	"sync"
 	"time"
 
-	pb "github.com/ccxt/ccxt/go/v4/protoc"
+	pb "github.com/mtan11/ccxt/go/v4/protoc"
 	"golang.org/x/net/proxy"
 	"google.golang.org/protobuf/encoding/protojson"
 	"google.golang.org/protobuf/proto"
@@ -962,21 +962,27 @@ func (this *Exchange) FixStringifiedJsonMembers(a interface{}) string {
 	aStr = strings.ReplaceAll(aStr, "}\"", "}")
 	return aStr
 }
-
 func (this *Exchange) IsEmpty(a interface{}) bool {
 	if a == nil {
 		return true
 	}
-
 	v := reflect.ValueOf(a)
 
 	switch v.Kind() {
-	case reflect.String:
+
+	case reflect.Array, reflect.Slice, reflect.Map:
 		return v.Len() == 0
-	case reflect.Slice, reflect.Array:
-		return v.Len() == 0
-	case reflect.Map:
-		return v.Len() == 0
+
+	case reflect.Struct:
+		return v.IsZero()
+
+	case reflect.Ptr:
+		if v.IsNil() {
+			return true
+		}
+		// Recursively check the value the pointer points to
+		return this.IsEmpty(v.Elem().Interface())
+
 	default:
 		return false
 	}
@@ -1579,14 +1585,14 @@ func (this *Exchange) OrderBook(optionalArgs ...interface{}) *WsOrderBook {
 // IndexedOrderBook and CountedOrderBook share the same implementation for now.
 func (this *Exchange) IndexedOrderBook(optionalArgs ...interface{}) *IndexedOrderBook {
 	snapshot := GetArg(optionalArgs, 0, map[string]interface{}{})
-	depth := GetArg(optionalArgs, 1, 9007199254740991)
+	depth := GetArg(optionalArgs, 1, int64(9007199254740991))
 	orderBook := NewIndexedOrderBook(snapshot, depth)
 	return orderBook
 }
 
 func (this *Exchange) CountedOrderBook(optionalArgs ...interface{}) *CountedOrderBook {
 	snapshot := GetArg(optionalArgs, 0, map[string]interface{}{})
-	depth := GetArg(optionalArgs, 1, 9007199254740991)
+	depth := GetArg(optionalArgs, 1, int64(9007199254740991))
 	orderBook := NewCountedOrderBook(snapshot, depth)
 	return orderBook
 }

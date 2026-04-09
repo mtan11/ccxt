@@ -23,10 +23,12 @@ public partial class BaseTest
             testPrecise();
             testSafeMethods();
             testSafeTicker();
+            testToArray();
             testJson();
             testSortBy();
             testSum();
             testUrlencodeBase64();
+            testUrlencode();
             testOmit();
             testGroupBy();
             testIndexBy();
@@ -34,10 +36,15 @@ public partial class BaseTest
             testFilterBy();
             testHandleMethods();
             testRemoveRepeatedElementsFromArray();
+            testIsEmpty();
+            testUrlencodeWithArrayRepeat();
             testParsePrecision();
             testPrecisionFromString();
+            testTimeframes();
             testStrip();
+            testRawencode();
             testExtractParams();
+            testArrayConcat();
             testArraysConcat();
             testUuid();
             await testSetMarketsFromExchange();
@@ -45,6 +52,7 @@ public partial class BaseTest
             testKeysort();
             testImplodeParams();
             testUnique();
+            testUrlencodeNested();
             await testSleep();
             testIo();
             testIsJsonEncodedObject();

@@ -40,14 +40,13 @@ import {BaseError, ExchangeError, AuthenticationError, PermissionDenied, Account
 //-----------------------------------------------------------------------------
 // this is updated by vss.js when building
 
-const version = '4.5.44';
+const version = '4.5.45';
 
 (Exchange as any).ccxtVersion = version
 
 //-----------------------------------------------------------------------------
 
 import aftermath from  './src/aftermath.js'
-import alp from  './src/alp.js'
 import alpaca from  './src/alpaca.js'
 import apex from  './src/apex.js'
 import arkham from  './src/arkham.js'
@@ -130,6 +129,7 @@ import latoken from  './src/latoken.js'
 import lbank from  './src/lbank.js'
 import lighter from  './src/lighter.js'
 import luno from  './src/luno.js'
+import matrixport from  './src/matrixport.js'
 import mercado from  './src/mercado.js'
 import mexc from  './src/mexc.js'
 import modetrade from  './src/modetrade.js'
@@ -242,7 +242,6 @@ import xtPro from  './src/pro/xt.js'
 
 const exchanges = {
     'aftermath':              aftermath,
-    'alp':                    alp,
     'alpaca':                 alpaca,
     'apex':                   apex,
     'arkham':                 arkham,
@@ -325,6 +324,7 @@ const exchanges = {
     'lbank':                  lbank,
     'lighter':                lighter,
     'luno':                   luno,
+    'matrixport':             matrixport,
     'mercado':                mercado,
     'mexc':                   mexc,
     'modetrade':              modetrade,
@@ -580,7 +580,6 @@ export {
     CrossBorrowRates,
     LeverageTiers,
     aftermath,
-    alp,
     alpaca,
     apex,
     arkham,
@@ -663,6 +662,7 @@ export {
     lbank,
     lighter,
     luno,
+    matrixport,
     mercado,
     mexc,
     modetrade,
